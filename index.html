@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Help Rikki Pay Her Legal Bills</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
+    <style>
+        body {
+            background-color: lightgray;
+            font-family: "Times New Roman", Times, serif;
+        }
+        #container {
+            width: 780px;
+            min-height: 650px;
+            display: block;
+            margin: 0 auto;
+        }
+        .box {
+            border: 4px ridge gray;
+            padding: 2px;
+        }
+        .comic {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+            color: red;
+        }
+        .bar-part {
+            height: 3ex;
+            display: inline-block;
+            border-radius: 1ex;
+        }
+        #bar-outer {
+            background-color: white;
+            border-radius: 1ex;
+            width: 320px;
+            padding: 1ex;
+        }
+        #bar-inner {
+            background-color: red;
+            border-radius: 1ex;
+            width: 50px;
+        }
+        .reward {
+            margin-bottom: 5px;
+        }
+        .reward > h3 {
+            color: #7C00FE;
+        }
+        .reward-content {
+            display: flex;
+        }
+        .reward-content > img {
+            height: 150px;
+        }
+    </style>
+    <!--<script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>-->
+    <script>
+	window.addEventListener("load", async (event) => {
+            //new cursoreffects.springyEmojiCursor({ emoji: "💞" });
+            new cursoreffects.fairyDustCursor({
+              colors: ["#7C00FE", "#F9E400", "#FFAF00", "#F5004F"],
+            });
+        });
+
+	window.addEventListener("load", async (event) => {
+            const response = await fetch("https://script.google.com/macros/s/AKfycbwCR2wgSQVf3bjya9VyA31l10OcB6V2g-_JiEZKGE2BUVnxYNTnfiCWDsfWGJXAerzg/exec");
+            console.log(response);
+            const remaining = await response.json();
+            console.log(remaining);
+            Object.entries(remaining).forEach(([name, numRemaining]) => {
+                const el = document.getElementById(name)
+                if (el) {
+                    el.innerHTML = `${numRemaining} remaining`;
+                } else {
+                    console.log(`Could not find element for ${name}`);
+                }
+            });
+	});
+    </script>
+</head>
+<body id=container>
+    <h1 class="box comic">
+        Help Rikki Pay Her Legal Bills
+    </h1>
+    <div>
+        Progress
+        <div style="display: flex; flex-direction: row">
+            <div id=bar-outer class=bar-part>
+                <div style="display: flex; flex-direction: row">
+                    <div id=bar-inner class=bar-part></div><div class=bar-part>$5,000</div>
+                </div>
+            </div>$32,000
+        </div>
+    </div>
+
+    <h2 class="box comic">
+        Prizes!!
+    </h2>
+    <p>Donate to the fundraiser to claim a prize. Donations via the <a href="todo">GoFundMe</a> are not eligible for rewards due to GoFundMe's ToS.
+    </p>
+    <div class="reward box">
+        <h3>$100: A calendar from Cherlyn</h3>
+        <div class=reward-content>
+            <img src="./imgs/cherlyn.jpg">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1S5IvQkBVmzb0In9OLMNYoL0EibJ2mUObqKo5RlrD5UFs0A/viewform?usp=pp_url&entry.513342160=$100+Cherlyn's+calendar"><img src="./tball.gif">claim reward</a>
+        </div>
+    </div>
+    <div class="reward box">
+        <h3>$200: A small knit pig from Nastassia's mom</h3>
+        <div class=reward-content>
+            <img src="./imgs/sandy.png">
+            <p>Any color</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1S5IvQkBVmzb0In9OLMNYoL0EibJ2mUObqKo5RlrD5UFs0A/viewform?usp=pp_url&entry.513342160=$200+Nastassia's+mom's+knit+pig"><img src="./tball.gif">claim reward</a>
+            <span id="$200 Nastassia's mom's knit pig"></span>
+        </div>
+    </div>
+</body>
