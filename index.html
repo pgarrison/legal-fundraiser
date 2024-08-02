@@ -76,6 +76,9 @@
                 } else {
                     console.log(`Could not find element for ${name}`);
                 }
+                if (numRemaining <= 0) {
+                    el.parentElement.getElementsByTagName("a")[0].innerText = "all claimed :("
+                }
             });
 	});
     </script>
