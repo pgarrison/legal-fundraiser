@@ -63,9 +63,18 @@
         }
         #expand {
             margin: 0 auto;
+            font-size: 2ex;
+        }
+        #expand:hover {
+            background: #F9E400;
         }
         #below-fold {
             display: none;
+        }
+        .centering {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
     <!--<script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>-->
@@ -154,7 +163,9 @@
 <p class="bold"><a href=""https://secure.lawpay.com/pages/msorich/trust?reference=Rikki%20Hinz"">Click here to contribute directly to the litigation costs of the minor guardianship case.</a> 100% of your donation will go to my billing account with the lawyer. Any donations that exceed the costs of litigation will be used to provide care for lil A.</p>
         </div>
 
-        <button id="expand">Read more</button>
+        <div class="centering">
+            <button id="expand">Click to read more<br>For those who need more context as to<br>why they should open their wallets</button>
+        </div>
 
         <div id=below-fold>
 <h2>Why is it so expensive?</h2>
