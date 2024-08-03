@@ -68,6 +68,11 @@
         #expand:hover {
             background: #F9E400;
         }
+        #preview {
+            background-image: linear-gradient(rgba(0,0,0, 1000), rgba(0,0,0,0));
+            color: transparent;
+            background-clip: text;
+        }
         #below-fold {
             display: none;
         }
@@ -81,8 +86,10 @@
     <script>
 	window.addEventListener("load", async (event) => {
             document.getElementById("expand").addEventListener("click", () => {
-                document.getElementById("below-fold").style.display = "block";
                 document.getElementById("expand").style.display = "none";
+                document.getElementById("preview").style["background-image"] = "none";
+                document.getElementById("preview").style.color = "black";
+                document.getElementById("below-fold").style.display = "block";
             });
         })
 
@@ -167,9 +174,12 @@
             <button id="expand">Click to read more<br>For those who need more context as to<br>why they should open their wallets</button>
         </div>
 
-        <div id=below-fold>
+        <div id="preview">
 <h2>Why is it so expensive?</h2>
 <p>My lawyer bills up to $435 an hour.</p>
+        </div>
+
+        <div id=below-fold>
 <ul>
     <li>$42 covers the cost of one email</li>
     <li>$126 covers the cost of a short 18-minute meeting</li>
